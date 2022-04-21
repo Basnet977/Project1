@@ -1,0 +1,43 @@
+{% extends 'master/master.html' %} 
+
+
+{% block content %}
+
+
+<h2>Our Background</h2>
+
+
+  <div class="best-features about-features">
+    <div class="container">
+      <div class="row">
+        {% for z in y %}
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Our Background</h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="right-image">
+            <img src="{{ z.image.url }}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="left-content">
+            <h4>{{ z.title }}</h4>
+            <p>{{ z.description|safe }}</p>
+            <ul class="social-icons">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+ 
+
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'master/master.html' %} 
+
+
+{% block content %}
+
+
+<!-- Page Content -->
+<div class="page-heading products-heading header-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-content">
+          <h4>new arrivals</h4>
+          <h2>sixteen products</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="page-heading products-heading header-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-content">
+          <h4>new arrivals</h4>
+          <h2>sixteen products</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="products">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="filters">
+          <ul>
+              <li class="active" data-filter="*">All Products</li>
+              {% for category in CategoryData %}
+              <a href="{% url 'cat_display' category.id %}">
+              <li data-filter=".des">{{ category.cat_name }}</li>
+              </a>
+              {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="filters-content">
+            <div class="row grid">
+              {% for category in CategoryData %}
+              {% for cat in category.product_set.all %}
+                <div class="col-lg-4 col-md-4 all des">
+                  <div class="product-item">
+                    <a href="#"><img src="{{ cat.image.url }}" alt=""></a>
+                    <div class="down-content">
+                      <a href="{% url 'product-details' cat.slug %}"><h4>{{ cat.title }}</h4></a>
+                      <h6>${{ cat.price }}</h6>
+                      <p>{{ cat.description|safe }}</p>
+                      <ul class="stars">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                      <span>Reviews (12)</span>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+      </div>
+
+      <ul class="pages">
+          <div class="col-md-12">
+        <li><a href="#">1</a></li>
+          <li class="active"><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="inner-content">
+          <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+        
+        - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+{% endblock%}
